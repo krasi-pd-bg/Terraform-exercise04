@@ -64,18 +64,13 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: Download plan output
-      uses: actions/download-artifact@v4
-      with:
-        name: tfplan  
-      
-
-    
     - name: Terraform Init
       run: terraform init
 
-    - name: Terraform plan
-      run: terraform plan -out=tfplan
+    - name: Download plan output
+      uses: actions/download-artifact@v4
+      with:
+        name: tfplan
 
     - name: Terraform apply
       run: terraform apply -auto-approve tfplan
