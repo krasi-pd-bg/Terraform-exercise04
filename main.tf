@@ -54,7 +54,7 @@ resource "azurerm_linux_web_app" "alwa" {
 
   site_config {
     application_stack {
-      dotnet_version = "8.0"
+      dotnet_version = "6.0"
     }
     always_on = false
   }
