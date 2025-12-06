@@ -42,7 +42,7 @@ resource "azurerm_service_plan" "asp" {
 
 resource "azurerm_linux_web_app" "alwa" {
   //name                = "TaskBoard${random_integer.ri.result}"
-  name                = var.app_service_name
+  name                = "${var.app_service_name}${random_integer.ri.result}"
   resource_group_name = azurerm_resource_group.azureRG.name
   location            = azurerm_service_plan.asp.location
   service_plan_id     = azurerm_service_plan.asp.id
