@@ -1,0 +1,38 @@
+name: 'Terraform Test'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+
+
+jobs:
+  terraform_test:
+    name: 'Terraform test job'
+    runs-on: ubuntu-latest
+
+
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+
+   
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      
+
+    
+    - name: Terraform Init
+      run: terraform init
+
+   
+    - name: Terraform Format
+      run: terraform fmt -check -recursive
+
+   
+    - name: Terraform Validate
+      run: terraform validate
+
+      
