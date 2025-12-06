@@ -42,7 +42,7 @@ jobs:
       run: terraform plan -out=tfplan
 
     - name: Save plan output
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         path: terraform.tfplan  
         name: tfplan  
